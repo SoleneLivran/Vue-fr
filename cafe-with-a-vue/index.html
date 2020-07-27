@@ -29,7 +29,7 @@
 			</ul>
 
 			<footer class="footer">
-				<p>Copyright {{ restaurantName }} 2019</p>
+				<p>{{ copyright }}</p>
 			</footer>
 		</div>
 
@@ -42,11 +42,11 @@
 					phoneNumber: "01 88 88 88 88",
 					emailAdress: "hello@cafewithavue.bakery",
 					postalAdress: "18 avenue du Beurre, Paris, France",
-					computed: {
-						copyright() {
-							const currentYear = new Date().getFullYear()
-							return `Copyright ${this.restaurantName} ${currentYear}`
-						}
+				},
+				computed: {
+					copyright() {
+						const currentYear = new Date().getFullYear()
+						return `Copyright ${this.restaurantName} ${currentYear}`
 					}
 				}
 			})
