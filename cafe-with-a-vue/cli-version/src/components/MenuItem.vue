@@ -2,7 +2,7 @@
 <script>
 export default {
 	name: "MenuItem",
-	props: ["addToShoppingCart", "image", "inStock", "name", "quantity"]
+	props: ["onClick", "image", "inStock", "name", "quantity"]
 }
 </script>
 
@@ -16,7 +16,7 @@ export default {
 			<div>
 				<label for="add-item-quantity">Quantité : {{ quantity }}</label>
 				<input v-model.number="quantity" id="add-item-quantity" type="number" />
-				<button @click="addToShoppingCart(quantity)">
+				<button @click="onClick(quantity)">
 					Ajouter au panier
 				</button>
 			</div>
