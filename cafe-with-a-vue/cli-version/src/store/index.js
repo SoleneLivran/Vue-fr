@@ -5,6 +5,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
 	state: {
+    // = data store
 		restaurantName: "La belle vue",
 		shoppingCart: 0,
 		simpleMenu: [
@@ -41,13 +42,26 @@ export default new Vuex.Store({
 		]
 	},
 	getters: {
+    // proprietes calculees
 		copyright: (state) => {
 			const currentYear = new Date().getFullYear()
 
 			return `Copyright ${state.restaurantName} ${currentYear}`
 		}
 	},
-	mutations: {},
-	actions: {},
+  mutations: {
+  // mettre a jour / modifier le state
+  // 1 mutation = 1 seul usage
+  // la logique sera dans les actions
+		ADD_TO_SHOPPING_CART(state, amount = 1) {
+      state.shoppingCart += amount
+    }
+	},
+  actions: {
+  // +- = methods : coordonner la logique des mutations
+		updateShoppingCart({ commit }, amount) {
+      commit("ADD_TO_SHOPPING_CART", amount)
+    }
+	},
 	modules: {}
 })
